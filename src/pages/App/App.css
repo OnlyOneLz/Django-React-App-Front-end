@@ -1,0 +1,64 @@
+/* styles.css
+
+/* Import Bootstrap styles */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* Custom styles */
+
+/* body {
+    background-color: #fafafa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #262626;
+}
+
+.content {
+    padding: 2rem 0;
+}
+
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* Style for a generic card component */
+/* .card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+} */
+
+.card-content {
+    padding: 1rem;
+}  */
+
+.profile-pic {
+    width: 100px; /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    border-radius: 50%; /* To make it a circle */
+}
+
+/* Add more Bootstrap or custom styles as needed */

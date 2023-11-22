@@ -1,0 +1,18 @@
+/* SignUp.css */
+.container {
+    max-width: 400px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.float-start {
+    float: left;
+    margin-right: 10px;
+}
