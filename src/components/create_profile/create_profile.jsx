@@ -23,7 +23,7 @@ export default function CreateProfile() {
             formData.append("user", parseInt(localStorage.getItem("user_url")));
             formData.append("profile_pic", profilePic);
 
-            const response = await fetch("http://localhost:8000/create_profile/", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/create_profile/`, {
                 method: "POST",
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
@@ -57,7 +57,7 @@ export default function CreateProfile() {
     return (
         <div className="container">
         <div className="form-container" onSubmit={handleSubmit}>
-          <div className="form-content">
+        <div className="form-content">
             <h1 className="form-title">Sign up</h1>
             <form onSubmit={handleSubmit}>
                 <br />

@@ -15,7 +15,7 @@ export default function OtherProfile() {
         async function getProfile() {
             const userId = localStorage.getItem("other_profileId");
             try {
-                const response = await fetch(`http://localhost:8000/profile/${userId}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function OtherProfile() {
         async function getFeed() {
             const userId = localStorage.getItem("other_profileId");
             try {
-                const response = await fetch(`http://localhost:8000/media`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/media`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function OtherProfile() {
             console.log(otherUserId);
             console.log(userId);
             try {
-                const response = await fetch(`http://localhost:8000/follows`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/follows`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function OtherProfile() {
                     },
                 });
                 const result = await response.json();
-                const filteredFollows = result.filter((follows) => follows.sender_profile === `http://localhost:8000/profile/${parseInt(userId)}/` && follows.receiver_profile === `http://localhost:8000/profile/${parseInt(otherUserId)}/`);
+                const filteredFollows = result.filter((follows) => follows.sender_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${parseInt(userId)}/` && follows.receiver_profile === `http://localhost:8000/profile/${parseInt(otherUserId)}/`);
                 console.log(filteredFollows);
                 setFilFollows(filteredFollows)
                 if (filteredFollows.length > 0) {
@@ -87,15 +87,15 @@ export default function OtherProfile() {
         const userId = localStorage.getItem("profile_id");
         const receiverId = localStorage.getItem("receiver_url");
         try {
-            const response = await fetch("http://localhost:8000/create_follow/", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/create_follow/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${localStorage.getItem("access_token")}`,
                 },
                 body: JSON.stringify({
-                    sender_profile: `http://localhost:8000/profile/${userId}/`,
-                    receiver_profile: `http://localhost:8000/profile/${receiverId}/`,
+                    sender_profile: `${process.env.REACT_APP_BACKEND_URL}/profile/${userId}/`,
+                    receiver_profile: `${process.env.REACT_APP_BACKEND_URL}/profile/${receiverId}/`,
                 }),
             });
             if (response.ok) {

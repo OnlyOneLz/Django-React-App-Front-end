@@ -17,7 +17,7 @@ export const Login = () => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:8000/token/",
+      `${process.env.REACT_APP_BACKEND_URL}/token/`,
       user,
       {
         headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ export const Login = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/profile/`,
+        `${process.env.REACT_APP_BACKEND_URL}/profile/`,
         {
           method: "GET",
           headers: {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { Logout } from "../../components/logout/logout";
 import "./Settings.css"
 
 export default function Settings() {
@@ -22,7 +21,7 @@ export default function Settings() {
     const userId = localStorage.getItem("profile_id");
     async function getProfile() {
       try {
-        const response = await fetch(`http://localhost:8000/profile/${userId}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${userId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -105,7 +104,7 @@ export default function Settings() {
 
       console.log(formData);
 
-      const response = await fetch(`http://localhost:8000/profile/${profile.id}/`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${profile.id}/`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -127,7 +126,7 @@ export default function Settings() {
 
   async function deleteProfile() {
     try {
-      const response = await fetch(`http://localhost:8000/profile/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${userId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -141,7 +140,7 @@ export default function Settings() {
       console.log("User not found", error);
     }
     try {
-      const response = await fetch(`http://localhost:8000/userDelete/${userUrl}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/userDelete/${userUrl}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

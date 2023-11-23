@@ -16,7 +16,7 @@ export default function Profile() {
         async function getProfile() {
             const userId = localStorage.getItem("profile_id");
             try {
-                const response = await fetch(`http://localhost:8000/profile/${userId}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export default function Profile() {
         async function getFeed() {
             const userId = localStorage.getItem("profile_id");
             try {
-                const response = await fetch(`http://localhost:8000/media`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/media`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -58,10 +58,10 @@ export default function Profile() {
         getFeed()
 
         async function getFollows() {
-            const otherUserId = localStorage.getItem("other_profileId");
+            // const otherUserId = localStorage.getItem("other_profileId");
             const userId = localStorage.getItem("profile_id");
             try {
-                const response = await fetch(`http://localhost:8000/follows`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/follows`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -71,8 +71,8 @@ export default function Profile() {
                     },
                 });
                 const result = await response.json();
-                const filteredFollows = result.filter((follows) => follows.receiver_profile === `http://localhost:8000/profile/${parseInt(userId)}/`);
-                const filteredFollowing = result.filter((follows) => follows.sender_profile === `http://localhost:8000/profile/${parseInt(userId)}/`);
+                const filteredFollows = result.filter((follows) => follows.receiver_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${parseInt(userId)}/`);
+                const filteredFollowing = result.filter((follows) => follows.sender_profile === `${process.env.REACT_APP_BACKEND_URL}/${parseInt(userId)}/`);
                 setFilFollows(filteredFollows)
                 setFilFollowing(filteredFollowing)
             } catch (error) {
@@ -84,7 +84,7 @@ export default function Profile() {
 
     async function deletePost(id) {
         try {
-            const response = await fetch(`http://localhost:8000/media/${id}/`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/media/${id}/`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -116,7 +116,7 @@ export default function Profile() {
                                 <Button variant="light" className="float-start" style={{ border: '2px solid black' }}>Settings</Button>
                             </Link>
                             <h1 style={{ fontFamily: 'Croissant One', fontSize: '8vh', marginRight: '30vh', marginBottom: '-10vh' }}>ELOGRAM</h1>
-                            <Button variant="light" className="float-end" style={{ marginRight: '2vh', border: '2px solid black', marginRight: '2vh' }}>Followers: {filFollows.length}</Button>
+                            <Button variant="light" className="float-end" style={{ border: '2px solid black', marginRight: '2vh' }}>Followers: {filFollows.length}</Button>
                             <Button variant="light" className="float-end" style={{ marginRight: '2vh', border: '2px solid black' }}>Following: {filFollowing.length}</Button>
                             <Button variant="light" className="float-end" style={{ marginRight: '2vh', border: '2px solid black' }}>Posts: {feed.length}</Button>
                             {profile?.profile_pic && (

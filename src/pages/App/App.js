@@ -4,7 +4,6 @@ import { Login } from '../../components/login/login';
 import Profile from '../profile/profile';
 import Settings from '../settings/settings';
 import Messages from '../messages/messages';
-import Navbar from '../../components/NavBar/navbar';
 import MessageChat from '../messages/message_chat/message_chat';
 import { Routes, Route } from "react-router-dom";
 import Home from "../../components/home/home";

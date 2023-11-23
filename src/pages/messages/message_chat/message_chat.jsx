@@ -15,7 +15,7 @@ export default function MessageChat({ recUrl }) {
     useEffect(() => {
         async function getMessages() {
             try {
-                const response = await fetch(`http://localhost:8000/messages`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/messages`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -36,12 +36,12 @@ export default function MessageChat({ recUrl }) {
         const userId = localStorage.getItem("profile_id")
         const receiverId = localStorage.getItem("receiver_url");
         // Filter messages based on receiverId
-        const myfiltered = messages.filter(message => message.sender_profile === `http://localhost:8000/profile/${userId}/` &&
-            message.receiver_profile === `http://localhost:8000/profile/${receiverId}/`);
+        const myfiltered = messages.filter(message => message.sender_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${userId}/` &&
+            message.receiver_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${receiverId}/`);
         setMyFilteredMessages(myfiltered);
         const recieverFiltered = messages.filter(
-            (message) => message.receiver_profile === `http://localhost:8000/profile/${userId}/` &&
-                message.sender_profile === `http://localhost:8000/profile/${receiverId}/`);
+            (message) => message.receiver_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${userId}/` &&
+                message.sender_profile === `${process.env.REACT_APP_BACKEND_URL}/profile/${receiverId}/`);
         setFilteredMessages(recieverFiltered);
     }, [messages, receiverId]);
 
@@ -49,7 +49,7 @@ export default function MessageChat({ recUrl }) {
         const userId = localStorage.getItem("profile_id")
         async function getProfile() {
             try {
-                const response = await fetch(`http://localhost:8000/profile/${userId}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function MessageChat({ recUrl }) {
         async function getRecieverProfile() {
             const receiverId = localStorage.getItem("receiver_url");
             try {
-                const response = await fetch(`http://localhost:8000/profile/${receiverId}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${receiverId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -88,15 +88,15 @@ export default function MessageChat({ recUrl }) {
         const userId = localStorage.getItem("profile_id");
         const receiverId = localStorage.getItem("receiver_url");
         try {
-            const response = await fetch("http://localhost:8000/add_message/", {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/add_message/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${localStorage.getItem("access_token")}`,
                 },
                 body: JSON.stringify({
-                    sender_profile: `http://localhost:8000/profile/${userId}/`,
-                    receiver_profile: `http://localhost:8000/profile/${receiverId}/`,
+                    sender_profile: `${process.env.REACT_APP_BACKEND_URL}/profile/${userId}/`,
+                    receiver_profile: `${process.env.REACT_APP_BACKEND_URL}/profile/${receiverId}/`,
                     message_content: message,
                 }),
             });

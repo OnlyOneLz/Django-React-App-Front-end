@@ -7,7 +7,7 @@ import Navbar from "../../components/NavBar/navbar";
 
 const MessagesPage = () => {
     const [messages, setMessages] = useState([]);
-    const [profiles, setProfiles] = useState([]);
+    // const [profiles, setProfiles] = useState([]);
     const [uniqueReceivers, setUniqueReceivers] = useState([]);
     const navigate = useNavigate();
 
@@ -15,12 +15,12 @@ const MessagesPage = () => {
         const fetchData = async () => {
             try {
                 // Fetch messages
-                const messagesResponse = await axios.get("http://localhost:8000/messages/");
+                const messagesResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/messages/`);
                 setMessages(messagesResponse.data);
 
                 // Fetch profiles
-                const profilesResponse = await axios.get("http://localhost:8000/profile/");
-                setProfiles(profilesResponse.data);
+                // const profilesResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/profile/`);
+                // setProfiles(profilesResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

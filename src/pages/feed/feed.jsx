@@ -14,7 +14,7 @@ export default function Feed() {
     useEffect(() => {
         async function getFeed() {
             try {
-                const response = await fetch(`http://localhost:8000/media`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/media`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function Feed() {
 
                 // Fetch profiles for each document
                 const profileRequests = result.map((document) =>
-                    fetch(`http://localhost:8000/profile/${document.profile}`, {
+                    fetch(`${process.env.REACT_APP_BACKEND_URL}/profile/${document.profile}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",

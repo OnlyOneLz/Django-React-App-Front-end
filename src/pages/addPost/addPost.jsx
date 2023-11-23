@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/NavBar/navbar";
 
@@ -31,7 +30,7 @@ export default function AddPost() {
       profile: profileId
     }
 
-    axios.post("http://localhost:8000/add_media/", body, {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/add_media/`, body, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
