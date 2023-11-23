@@ -1,0 +1,35 @@
+/* Login.css */
+.log-Auth-form-container {
+    margin: 0;
+    height: 100vh;
+    background-image: url('https://static9.depositphotos.com/1005738/1075/v/950/depositphotos_10754952-stock-illustration-social-media-network-icon-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.156);
+    font-family: 'Bebas Neue';
+}
+
+form.log-Auth-form {
+    max-width: 400px;
+    margin: 5vh auto 0 auto;
+    display: flex;
+    align-items: center;
+
+}
+
+.log-Auth-form-content {
+    text-align: center;
+}
+
+.log-Auth-form-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.log-form-group {
+    margin-bottom: 20px;
+}
+
+/* Add more styles as needed */

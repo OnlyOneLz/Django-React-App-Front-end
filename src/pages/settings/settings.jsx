@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Logout } from "../../components/logout/logout";
 import "./Settings.css"
 
 export default function Settings() {
@@ -56,7 +57,7 @@ export default function Settings() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
+
     // Check if the file input is cleared and reset the profile picture
     if (!file) {
       setProfile((prevProfile) => ({
@@ -64,12 +65,29 @@ export default function Settings() {
         profile_pic: null,
       }));
       console.log('HITTTT');
-    } else {
-      setProfile((prevProfile) => ({
-        ...prevProfile,
-        profile_pic: file,
-      }));
+      return;
     }
+
+    // Create an object URL for the uploaded file
+    const objectURL = URL.createObjectURL(file);
+
+    // Create an Image element to get the image dimensions
+    const img = new Image();
+    img.src = objectURL;
+
+    img.onload = () => {
+      // Check if the image is a perfect circle (aspect ratio is 1:1)
+      if (img.width === img.height) {
+        // Set the profile picture
+        setProfile((prevProfile) => ({
+          ...prevProfile,
+          profile_pic: file,
+        }));
+      } else {
+        // Alert the user that the image should be a perfect circle
+        alert('Please upload an image with a 1:1 aspect ratio (width equals height) for a perfect circle.');
+      }
+    };
   };
 
 
@@ -142,13 +160,12 @@ export default function Settings() {
   console.log(pic);
 
   return (
-    <div>
-      <Link to='/profile'>
-        <Button variant="Dark" className="float-end">Back</Button>
-      </Link>
-      <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <div className="profile-pic-container">
+          <Link to='/profile'>
+            <Button variant="Dark" style={{ border: '2px solid black' }} className="float-start">Back</Button>
+          </Link>
+          <h1>Settings</h1>
           {profile?.profile_pic && typeof profile.profile_pic === "string" ? (
             <img src={profile.profile_pic} alt="Profile Pic" className="profile-pic" />
           ) : profile?.profile_pic instanceof File ? (
@@ -213,9 +230,12 @@ export default function Settings() {
           />
         </label>
         <br />
-        <button type="submit">Update Profile</button>
-        <button onClick={deleteProfile}>Delete Profile</button>
+        <Button type="submit" style={{ border: '2px solid black', marginBottom: '1vh' }}>Update Profile</Button>
+        <Button onClick={deleteProfile} style={{ border: '2px solid black', marginBottom: '1vh' }}>Delete Profile</Button>
+        <hr />
+        <Link to='/logout'>
+            <Button variant="Dark" style={{ border: '2px solid black' }} >Logout</Button>
+          </Link>
       </form>
-    </div>
   );
 }

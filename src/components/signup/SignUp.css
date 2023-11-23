@@ -1,18 +1,75 @@
 /* SignUp.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Croissant+One&family=Oswald:wght@200&family=Titillium+Web:wght@200&family=Victor+Mono:wght@100&family=Young+Serif&display=swap');
+
+
+/* Rest of your styles */
+
+.signUp {
+    margin: 0;
+    height: 100vh;
+    background-image: url('https://static9.depositphotos.com/1005738/1075/v/950/depositphotos_10754952-stock-illustration-social-media-network-icon-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 50px;
+    /* Increased padding for better spacing */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Adjusted background color for better visibility */
+    font-family: 'Bebas Neue';
+    color: #333;
+    /* Set text color to a dark shade for better contrast */
+}
+
 .container {
     max-width: 400px;
-    margin: auto;
+    /* Adjusted max-width for better responsiveness */
+    margin: 0 auto;
+    /* Center the container horizontally */
 }
 
 h1 {
     text-align: center;
+    color: #000000;
+    /* Darkened h1 text color for better contrast */
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    /* Increased margin for better spacing */
+}
+
+.form-control {
+    border-radius: 5px;
+    /* Rounded corners for form inputs */
+}
+
+.form-label {
+    color: #555;
+    /* Slightly darkened label text color for better readability */
+}
+
+.form-check-label {
+    color: #555;
+    /* Slightly darkened checkbox label text color */
+}
+
+.form-check-input {
+    margin-top: 5px;
+    /* Adjusted margin for better checkbox alignment */
+}
+
+.btn-dark {
+    background-color: #333;
+    /* Darkened button background color */
+    border-color: #333;
+    /* Darkened button border color */
 }
 
 .float-start {
     float: left;
     margin-right: 10px;
+    color: #555;
+    /* Slightly darkened text color for better visibility */
 }
+
+/* Add additional styles as needed */

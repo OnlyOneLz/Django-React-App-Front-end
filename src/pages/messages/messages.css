@@ -1,0 +1,66 @@
+/* MessagesPage.css */
+
+/* Style for the entire MessagesPage */
+.messages-container {
+    padding: 20px;
+}
+
+/* Style for the back button */
+.messages-back-btn {
+    float: start;
+    /* Add any additional styles as needed */
+}
+
+/* Style for the h1 at the top */
+h1 {
+    text-align: center;
+    font-size: 50px; /* Increased font size */
+    color: #007bff; /* Blue color */
+}
+
+/* Style for the h2 */
+h2 {
+    margin-top: 20px;
+    font-size: 20px; /* Increased font size */
+    color: #333; /* Dark text color */
+}
+
+/* Style for the list of chats */
+.messages-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Style for each chat card */
+.messages-list-item {
+    width: calc(33.33% - 20px); /* Adjust the width as needed (3 cards in a row with some spacing) */
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #007bff; /* Border around each card */
+}
+
+/* Style for the button inside each card */
+.messages-list-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff;
+    font-size: 18px; /* Increased font size */
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Style for the profile picture inside each card */
+.messages-list-button img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}

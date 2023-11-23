@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/NavBar/navbar";
 
 export default function AddPost() {
+  const navigate = useNavigate()
 
   const [imageTitle, setImageTitle] = useState('')
   const [image, setImage] = useState(null)
@@ -37,8 +40,10 @@ export default function AddPost() {
       )
       .then((res) => {
         console.log(res.data);
+        navigate('/feed')
       })
       .catch((err) => console.log(err));
+
   };
   return (
     <div className="App">
@@ -64,6 +69,7 @@ export default function AddPost() {
         </p>
         <input type="submit" />
       </form>
+      <footer><Navbar /></footer>
     </div>
   );
 };

@@ -1,24 +1,38 @@
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
+
 export const Logout = () => {
     useEffect(() => {
-        (async () => {
+        const logout = async () => {
             try {
-                const { data } = await axios.post(
-                    "http://localhost:8000/logout/",
+                await axios.post(
+                    `http://localhost:8000/logout/`,
                     {
                         refresh_token: localStorage.getItem("refresh_token"),
                     },
-                    { headers: { "Content-Type": "application/json" } },
-                    { withCredentials: true }
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem("access_token")}`
+                        }
+                    }
                 );
+
+                // Clear local storage
                 localStorage.clear();
+
+                // Remove the Authorization header for future requests
                 axios.defaults.headers.common["Authorization"] = null;
+
+                // Redirect to the login page
                 window.location.href = "/login";
             } catch (e) {
-                console.log("logout not working", e);
+                console.error("Logout not working", e);
             }
-        })();
+        };
+
+        logout();
     }, []);
-    return <div></div>;
+
+    return null; // You can return null as this component doesn't render anything
 };

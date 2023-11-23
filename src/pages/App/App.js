@@ -6,16 +6,17 @@ import Settings from '../settings/settings';
 import Messages from '../messages/messages';
 import Navbar from '../../components/NavBar/navbar';
 import MessageChat from '../messages/message_chat/message_chat';
-import { Logout }  from "../../components/logout/logout";
 import { Routes, Route } from "react-router-dom";
 import Home from "../../components/home/home";
 import SignUp from '../../components/signup/signup';
 import CreateProfile from '../../components/create_profile/create_profile';
 import OtherProfile from '../otherProfile/otherProfile';
+import { Logout } from '../../components/logout/logout';
 import './App.css';
 
 
 function App() {
+<script src="https://kit.fontawesome.com/f18c4116b9.js" crossorigin="anonymous"></script>
 
   return (
     <div className="App">
@@ -33,7 +34,6 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/create_profile' element={<CreateProfile />} />
       </Routes>
-      <footer><Navbar /></footer>
     </div>
   );
 }

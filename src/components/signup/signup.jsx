@@ -43,8 +43,12 @@ export default function SignUp() {
     };
 
     return (
-        <div className="container">
-            <h1>Sign up</h1>
+        <div className="signUp">
+            <h1 style={{
+                color: 'black',
+                paddingLeft: '25vh'
+            }}>Sign up</h1>
+            <div className="container">
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Username</Form.Label>
@@ -73,7 +77,7 @@ export default function SignUp() {
                     />
                 </Form.Group>
 
-                <Button type="submit" variant="dark" className="mb-3">
+                <Button type="submit" variant="dark" className="mb-3" style={{color: 'black'}}>
                     Sign Up
                 </Button>
                 <Link to="/login">
@@ -82,6 +86,7 @@ export default function SignUp() {
                     </Button>
                 </Link>
             </Form>
+        </div>
         </div>
     );
 }

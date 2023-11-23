@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Navbar from "../../components/NavBar/navbar";
 
 
 const MessagesPage = () => {
@@ -56,23 +57,39 @@ const MessagesPage = () => {
     }
 
     return (
-        <div>
+        <div className="messages-container">
             <Link to='/profile'>
-                <Button variant="Dark" className="float-end">Back</Button>
+                <Button variant="Dark" className="messages-back-btn" style={{border: '2px solid black', margin:'2vh'}}>Back</Button>
             </Link>
-            <h1>Messages Page</h1>
-            <h2>Chats:</h2>
-            <ul>
+            <h1 style={{fontSize: '4vh', fontFamily:'Croissant One', marginTop: '-5vh'}}>Messages Page</h1>
+            <h2 style={{fontSize: '3vh'}}>Chats:</h2>
+            <ul className="messages-list">
                 {uniqueReceivers.map((receiver) => (
-                    <li key={receiver.url}>
-                        <button onClick={() => { console.log(receiver.id); save(receiver.id); }}>
-                            {receiver.first_name}
+                    <li key={receiver.url} className="messages-list-item">
+                        <button
+                            onClick={() => { console.log(receiver.id); save(receiver.id); }}
+                            className="messages-list-button"
+                        >
+                            <img
+                                src={receiver.profile_pic}
+                                alt=""
+                                style={{
+                                    marginTop: '60px',
+                                    border: '5px solid black',
+                                    maxWidth: "125px",
+                                    maxHeight: "1525px",
+                                    borderRadius: "50%",
+                                }}
+                            />
+                            {receiver.first_name} {receiver.last_name}
                         </button>
+                        <hr />
                     </li>
                 ))}
             </ul>
+            <footer><Navbar /></footer>
         </div>
     );
-};
+}
 
 export default MessagesPage;

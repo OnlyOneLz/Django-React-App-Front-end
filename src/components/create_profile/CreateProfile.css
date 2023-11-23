@@ -1,0 +1,35 @@
+/* CreateProfile.css */
+/* You can create a new CSS file or include these styles in your existing stylesheet */
+
+.container {
+    margin: 0;
+    min-height: 100vh;
+    min-width:  100vh;
+    background-image: url('https://static9.depositphotos.com/1005738/1075/v/950/depositphotos_10754952-stock-illustration-social-media-network-icon-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.156);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.form-container {
+    max-width: 50vh;
+    margin: 10vh auto 0 auto;
+}
+
+.form-content {
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Add more styles as needed */

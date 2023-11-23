@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./CreateProfile.css";
 
 
 export default function CreateProfile() {
@@ -54,8 +55,10 @@ export default function CreateProfile() {
     };
 
     return (
-        <div>
-            <h1>Sign up</h1>
+        <div className="container">
+        <div className="form-container" onSubmit={handleSubmit}>
+          <div className="form-content">
+            <h1 className="form-title">Sign up</h1>
             <form onSubmit={handleSubmit}>
                 <br />
                 <label>
@@ -111,8 +114,10 @@ export default function CreateProfile() {
                     />
                 </label>
                 <br />
-                <button type="submit">Sign Up</button>
+                <button type="submit">Create </button>
             </form>
         </div>
+        </div>
+    </div>
     );
 }

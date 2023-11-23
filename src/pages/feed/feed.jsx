@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/NavBar/navbar";
+import '../feed/feed.css'
 
 export default function Feed() {
     const [feed, setFeed] = useState([]);
@@ -63,72 +65,47 @@ export default function Feed() {
     return (
         <div style={{ height: "80vh", margin: "0 auto", overflowY: "auto" }}>
             <Link to='/profile'>
-                <Button variant="light" className="float-start">Back</Button>
+                <Button variant="light" className="float-start" style={{ border: '3px solid black', margin: '5vh'}}>Back</Button>
             </Link>
             <Link to='/messages'>
-                            <Button variant="light" className="float-end">Messages</Button>
-                        </Link>
-            <h1 style={{ textAlign: "center" }}>Feed</h1>
+                <button variant="light" className='fa-brands fa-facebook-messenger float-end' style={{ border: '2px solid black',margin: '5vh', height: '4.5vh', width: '4.5vh' }}></button>
+            </Link>
+            <h1 className='h1-style' style={{ textAlign: "center", fontSize: '7vh', fontFamily: 'Croissant One' }}>Your Feed</h1>
+            <hr />
             <div
                 style={{
                     justifyContent: "center",
+                    marginTop: '5vh'
                 }}
             >
                 {feed.map((document) => (
                     <div
                         key={document.id}
-                        style={{
-                            maxWidth: "80vh",
-                            minHeight: "70vh",
-                            border: "1px solid #ccc",
-                            margin: "0 auto",
-                            marginBottom: '5vh',
-                            padding: "10px",
-                            borderRadius: "8px",
-                            overflow: "hidden",
-                            position: "relative",
-                        }}
+                        className="feed-card"
                     >
-                        <Button variant="light" className="float-end" onClick={() => otherprofile(profiles[document.profile]?.id)}>
-                            <img
-                                src={profiles[document.profile]?.profile_pic}
-                                alt=""
-                                style={{
-                                    maxWidth: "125px",
-                                    maxHeight: "125px",
-                                    borderRadius: "50%",
-                                    border: "3px solid black",
-                                }}
-                            />
-                        </Button>
-                        <br />
+                        <div className="profile-pic-container">
+                            <button variant="light" className="float-end" style={{margin: '2vh'}} onClick={() => otherprofile(profiles[document.profile]?.id)}>
+                                <img
+                                    src={profiles[document.profile]?.profile_pic}
+                                    alt=""
+                                    className="profile-pic"
+                                />
+                                <p style={{ color: 'white'}}>posted by {profiles[document.profile]?.first_name}</p>
+                            </button>
+                        </div>
                         <img
                             src={document.document}
                             alt=""
-                            style={{
-                                maxWidth: "100%",
-                                maxHeight: "100%",
-                                margin: '0 auto'
-                            }}
+                            className="document-img"
                         />
-                        <div
-                            style={{
-                                position: "absolute",
-                                left: 0,
-                                width: "100%",
-                                height: "40%",
-                                background: "#333",
-                                color: "#fff",
-                                padding: "8px",
-                                overflow: "hidden",
-                            }}
-                        >
+                        <div className="overlay">
                             <p className="float-end">Likes: {document.likes}</p>
                             <p>Description: {document.title}</p>
                         </div>
                     </div>
                 ))}
             </div>
+            <footer><Navbar /></footer>
         </div>
     );
 }

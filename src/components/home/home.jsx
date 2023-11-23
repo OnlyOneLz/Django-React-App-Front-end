@@ -1,5 +1,6 @@
 // Import the react JS packages
 import { useEffect, useState } from "react";
+import Navbar from "../NavBar/navbar";
 import axios from "axios";
 // Define the Login function.
 const Home = () => {
@@ -26,6 +27,7 @@ const Home = () => {
     return (
         <div className="form-signin mt-5 text-center">
             <h3>Hi {message}</h3>
+            <footer><Navbar /></footer>
         </div>
     );
 };
