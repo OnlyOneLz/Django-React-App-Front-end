@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# ELOGRAM Django/React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Description
 
-## Available Scripts
+Elogram is a social media app developed as a full-stack project using Vanilla React for the frontend and Python/Django for the backend. Completed during the course, this project focused on implementing core features like user authentication, profile creation, messaging, and a dynamic feed.
 
-In the project directory, you can run:
 
-### `npm start`
+Deployment Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://django-react-app-front-end-production.up.railway.app/login 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Getting Started/Code Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository to your local machine.
+Navigate to the project folder.
+Install dependencies using npm install for the frontend and pip install -r requirements.txt for the backend.
+Set up your Django database and migrate using python manage.py migrate.
+Start the development server for the frontend with npm start.
+Run the backend server with python manage.py runserver.
+Access the app at http://localhost:3000/.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Timeframe & Working Team
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Timeframe: 1 Week
+Team: Solo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend: React
+Backend: Python, Django
+Database: Django ORM
+Authentication: Django Authentication System
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Brief
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Planning
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In the planning stage, I focused on the following:
+Wireframes: Created wireframes for the frontend UI.
+Database Design: Designed tables for users, profiles, media, likes, followers, etc.
+Project Management: Used Trello for task tracking, allocation, and sprint planning.
+https://trello.com/invite/b/84MjVzge/ATTI0ff681d81171fe734cc08a0902ef00df00DFCE7E/python-full-stack-app-project 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Build/Code Process
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Django Authentication:
+Implemented robust Django authentication for user signup and login processes, ensuring secure access to the platform.
 
-### Analyzing the Bundle Size
+Django Models:
+Created Django models to define the structure of the database, including entities for user profiles, media posts, likes, and followers. This laid the foundation for a comprehensive and organised data architecture.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+React Components:
+Developed a suite of React components to construct various features such as user profile pages, messaging functionality, the news feed, and more. This allowed for a dynamic and responsive user interface.
 
-### Making a Progressive Web App
+State and Data Flow:
+Managed state and facilitated data flow between the frontend React components and the backend Django server. This involved creating a seamless connection to ensure real-time updates and interactions on the social media platform.
+Challenges
+Functionality Implementation:
+Faced difficulty in implementing functionalities related to likes and the ability to view other users' profiles. Overcoming these challenges required a deep dive into the intricacies of the application's logic.
+Sorting Issues:
+Encountered sorting issues in displaying messages within the messenger platform and the news feed. Resolving these challenges involved meticulous debugging and optimization efforts.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+Wins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Authentication Success:
+Successfully implemented user signup and login processes using Django authentication, ensuring a secure and reliable user access system.
 
-### Deployment
+Seamless Profile Creation:
+Achieved a seamless profile creation process with the added functionality of uploading and displaying profile pictures, enhancing the user experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Functional Messaging System:
+Implemented a fully functional messaging system that allowed users to engage in individual and group conversations seamlessly.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Key Learnings/Takeaways
+
+Django Authentication Confidence:
+Gained confidence in working with Django authentication, a critical skill for building secure and user-friendly web applications.
+
+Improved React State Management:
+Enhanced skills in managing state and data flow within React components, contributing to a more efficient and responsive user interface.
+
+Understanding Social Media App Complexities:
+Developed a deep understanding of the complexities involved in building a social media application, including handling user interactions, data relationships, and 
+real-time updates.
+
+Insights into Application Development:
+Acquired valuable insights into the intricacies of application development, from database design to frontend implementation, contributing to a holistic perspective on building feature-rich web platforms.
+
+
+Bugs
+
+Inconsistent display of conversations in the messenger platform.
+Ordering issues with displaying the most recent posts in the feed.
+
+
+Future Improvements
+
+Addressing issues with messenger and feed ordering.
+Enhancing the user interface for a more seamless experience.
+
